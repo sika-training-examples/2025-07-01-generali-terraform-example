@@ -1,6 +1,9 @@
 resource "aws_security_group" "allow_22_80" {
   name   = "allow-22-80"
   vpc_id = module.my_vpc.vpc_id
+  tags = {
+    Name = "allow-22-80"
+  }
 
   ingress {
     from_port   = 22
