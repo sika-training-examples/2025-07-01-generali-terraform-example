@@ -37,3 +37,13 @@ resource "aws_route_table_association" "rta" {
   subnet_id      = aws_subnet.this[count.index].id
   route_table_id = aws_route_table.rt.id
 }
+
+output "vpc_id" {
+  description = "ID of the VPC"
+  value       = aws_vpc.this.id
+}
+
+output "subnet_ids" {
+  description = "List of subnet IDs"
+  value       = aws_subnet.this[*].id
+}
