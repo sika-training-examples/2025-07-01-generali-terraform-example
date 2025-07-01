@@ -1,5 +1,5 @@
 module "my_bucket_full_access_user" {
-  source = "./modules/user"
+  source = "git::https://github.com/sika-training-examples/2025-07-01-generali-terraform-example.git//modules/user"
 
   name = "my-bucket-full-access-user"
 }
