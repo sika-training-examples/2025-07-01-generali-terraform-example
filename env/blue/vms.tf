@@ -9,8 +9,8 @@ resource "aws_instance" "hello_generali" {
 
   ami                    = module.debian_ami_id.debian_ami_id
   instance_type          = "t3.micro"
-  subnet_id              = module.my_vpc.subnet_ids[count.index % length(module.my_vpc.subnet_ids)]
-  vpc_security_group_ids = [aws_security_group.allow_22_80.id]
+  subnet_id              = local.my_vpc_subnet_ids[count.index % length(local.my_vpc_subnet_ids)]
+  vpc_security_group_ids = [data.aws_security_group.allow_22_80.id]
   user_data              = <<-EOF
 #!/bin/bash
 apt-get update
